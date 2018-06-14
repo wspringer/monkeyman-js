@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    style
+      include:postcss:scss layout.scss
+  body
+    .main
+      header
+        h1= page.title
+        if page.subtitle
+          h2= page.subtitle
+      section
+        != contents

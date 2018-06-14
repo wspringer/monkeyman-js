@@ -1,0 +1,41 @@
+$max-width: 800px;
+$buffer: 20px;
+
+body {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+header {
+  background-color: #fcc443;
+  padding-top: 120px;
+  padding-bottom: 40px;
+  > h1, h2 {
+    max-width: $max-width;
+    margin: 0 auto;    
+    padding: 0 $buffer;
+  }
+  > h1 {
+    color: rgba(0, 0, 0, .9);
+    font-size: 30px;
+    font-weight: 600;    
+  }
+  > h2 {
+    color: rgba(0, 0, 0, .6);
+    font-weight: 400;
+  }
+}
+
+section {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $buffer;
+  line-height: 1.6;
+  > h1 {
+    margin-top: 40px;
+    color: rgba(0, 0, 0, .9);
+    font-weight: 400;    
+  }
+}
