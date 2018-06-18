@@ -68,18 +68,3 @@ require('yargs')
 
   .help()
   .argv
-
-
-# metalsmith = require 'metalsmith'
-# serve = require 'metalsmith-serve'
-# watch = require 'metalsmith-watch'
-# pug = require 'metalsmith-pug'
-# joi = require 'joi'
-
-# schema = Joi.object(
-#   in: Joi.string().description('The name of the ')
-# )
-
-# module.exports = () ->
-#   metalsmith()
-#   .source(dir)

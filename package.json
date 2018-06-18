@@ -1,10 +1,10 @@
 {
-  "name": "jenson",
+  "name": "monkeyman",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "bin": {
-    "jenson": "bin/jenson.js"
+    "monkeyman": "bin/monkeyman.js"
   },
   "scripts": {
     "prepare": "mkdir -p dist; coffee -c -o dist src"
