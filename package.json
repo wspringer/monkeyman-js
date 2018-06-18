@@ -7,7 +7,7 @@
     "monkeyman": "bin/monkeyman.js"
   },
   "scripts": {
-    "prepare": "mkdir -p dist; coffee -c -o dist src"
+    "prepublish": "mkdir -p dist; coffee -c -o dist src"
   },
   "author": "Wilfred Springer",
   "repository": {
