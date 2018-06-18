@@ -40,7 +40,7 @@ require('yargs')
         namespace: 'page'
       )
       .use (files, metalsmith, callback) ->
-        if argv.verbose console.info files
+        if argv.verbose then console.info files
         callback()
       .use markdown(
         smartypants: true
