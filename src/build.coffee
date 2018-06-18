@@ -5,7 +5,9 @@ frontmatter = require 'metalsmith-matters'
 layouts = require 'metalsmith-layouts'
 watch = require 'metalsmith-watch'
 _ = require 'lodash'
-appRoot = require('app-root-path').path
+appRoot = path.resolve(__dirname, '..')
+
+
 
 module.exports = ->
   require('yargs')
@@ -32,7 +34,7 @@ module.exports = ->
       metalsmith = require 'metalsmith'
       mkdirp argv.dst
       base = 
-        metalsmith(__dirname)
+        metalsmith(appRoot)
         .source(argv.src)
         .destination(argv.dst)
         .frontmatter(false)
@@ -49,14 +51,14 @@ module.exports = ->
         .use layouts(
           pattern: '**/*.html'
           default: 'layout.pug'
-          directory: path.resolve(__dirname, 'layout')
+          directory: path.resolve(appRoot, 'layout')
         )
         .use(require('metalsmith-sense-sass')())
       if argv.watch 
         base.use watch(
           paths: 
             '${source}/**/*': true
-            "#{__dirname}/layout/*": '**/*'
+            "#{appRoot}/layout/*": '**/*'
           livereload: true
         )          
       if argv.serve 
