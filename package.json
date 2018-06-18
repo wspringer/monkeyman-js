@@ -9,7 +9,11 @@
   "scripts": {
     "prepare": "mkdir -p dist; coffee -c -o dist src"
   },
-  "author": "",
+  "author": "Wilfred Springer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wspringer/monkeyman-js.git"
+  },
   "license": "ISC",
   "dependencies": {
     "app-root-path": "^2.0.1",
