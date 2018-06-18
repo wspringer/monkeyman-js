@@ -5,6 +5,8 @@ frontmatter = require 'metalsmith-matters'
 layouts = require 'metalsmith-layouts'
 watch = require 'metalsmith-watch'
 _ = require 'lodash'
+appRoot = require('app-root-path').path
+
 
 require('yargs')
   .usage '$0 <src> <dst>', 'Produces documentation from a directory of files', ((yargs) ->
@@ -21,12 +23,16 @@ require('yargs')
       alias: 'serve'
       type: 'boolean'
       describe: 'Start a server'
+    .option 'v',
+      alias: 'verbose'
+      type: 'boolean'
+      describe: 'Print verbose debugging output'
     .coerce ['src', 'dst'], path.resolve
   ), (argv) -> 
     metalsmith = require 'metalsmith'
     mkdirp argv.dst
     base = 
-      metalsmith(__dirname)
+      metalsmith(appRoot)
       .source(argv.src)
       .destination(argv.dst)
       .frontmatter(false)
@@ -34,7 +40,7 @@ require('yargs')
         namespace: 'page'
       )
       .use (files, metalsmith, callback) ->
-        console.info files
+        if argv.verbose console.info files
         callback()
       .use markdown(
         smartypants: true
@@ -43,14 +49,14 @@ require('yargs')
       .use layouts(
         pattern: '**/*.html'
         default: 'layout.pug'
-        directory: path.resolve(__dirname, 'layout')
+        directory: path.resolve(appRoot, 'layout')
       )
       .use(require('metalsmith-sense-sass')())
     if argv.watch 
       base.use watch(
         paths: 
           '${source}/**/*': true
-          "#{__dirname}/layout/*": '**/*'
+          "#{appRoot}/layout/*": '**/*'
         livereload: true
       )          
     if argv.serve 

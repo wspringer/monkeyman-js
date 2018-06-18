@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "jenson": "bin/jenson.js"
+  },
   "scripts": {
-    "test": "test"
+    "prepare": "mkdir -p dist; coffee -c -o dist src"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "app-root-path": "^2.0.1",
     "coffeescript": "^2.3.1",
     "commander": "^2.15.1",
     "joi": "^13.4.0",
