@@ -1,15 +1,20 @@
-$max-width: 800px;
-$buffer: 20px;
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+$max-width: 700px;
+$buffer: 60px;
+$brand-color: #fcc443;
+$link-color:#000;
 
 body {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   margin: 0;
+  counter-reset: chapter;
 }
 
 header {
-  background-color: #fcc443;
+  background-color: $brand-color;
   padding-top: 120px;
   padding-bottom: 40px;
   > h1, h2 {
@@ -19,12 +24,12 @@ header {
   }
   > h1 {
     color: rgba(0, 0, 0, .9);
-    font-size: 30px;
-    font-weight: 600;    
+    font-size: 40px;
+    font-weight: 400;    
   }
   > h2 {
     color: rgba(0, 0, 0, .6);
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 
@@ -33,9 +38,91 @@ section {
   margin: 0 auto;
   padding: 0 $buffer;
   line-height: 1.6;
-  > h1 {
-    margin-top: 40px;
+  > h1, h2 {
+    margin-top: 60px;
+    margin-bottom: 30px;
     color: rgba(0, 0, 0, .9);
     font-weight: 400;    
+    position: relative;
+  }
+  > h1:before {
+    counter-increment: chapter;
+    content: counter(chapter) ".";
+    position: absolute;
+    width: 30px;
+    left: -50px;
+    text-align: right;
+  }
+  li {
+    margin-bottom: 16px;
+    li {
+      margin-top: 16px;
+    }
+  }
+  ol, ul {
+    margin-bottom: 16px;
   }
 }
+
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  border-bottom: 1px dashed #000;
+}
+
+code, pre {
+  font-family: 'Source Code Pro';
+  color: #888;
+}
+
+ul, ol {
+  padding-left: 20px;
+  > li {
+    padding-left: 10px;
+    overflow: visible;
+  }
+}
+
+p img {
+  width: 100%;
+}
+
+@page {
+  margin: 20mm 0 25mm;
+}
+
+@page:first {
+  margin: 0 0 25mm 0;
+}
+
+@page:last {
+  margin: 60mm;
+}
+
+@media print {
+  $gutter: 50mm;
+  body {
+    font-size: 13px;
+  }
+  section {
+    padding-left: $gutter;
+    padding-right: 20mm;
+    > h1:before {
+      left: -30mm;
+      text-align: right;
+    }
+
+  }
+  header > * {
+    padding-left: $gutter !important;
+  }
+  p img {
+    margin-left: -30mm;
+    width: calc(100% + 30mm);
+  }
+}
+

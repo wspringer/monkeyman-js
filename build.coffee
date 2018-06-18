@@ -41,6 +41,7 @@ require('yargs')
         gfm: true
       )
       .use layouts(
+        pattern: '**/*.html'
         default: 'layout.pug'
         directory: path.resolve(__dirname, 'layout')
       )
