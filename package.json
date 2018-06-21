@@ -2,7 +2,7 @@
   "name": "monkeyman",
   "version": "0.8.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/build.js",
   "bin": {
     "monkeyman": "bin/monkeyman.js"
   },
