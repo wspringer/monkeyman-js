@@ -16,8 +16,8 @@ body {
 header {
   background-color: $brand-color;
   padding-top: 120px;
-  padding-bottom: 40px;
-  > h1, h2 {
+  padding-bottom: 50px;
+  > h1, h2, h3 {
     max-width: $max-width;
     margin: 0 auto;    
     padding: 0 $buffer;
@@ -30,12 +30,19 @@ header {
   > h2 {
     color: rgba(0, 0, 0, .6);
     font-weight: 500;
+    margin-bottom: 30px;
+  }
+  > h3 {
+    margin-top: 30px;
+    color: rgba(0, 0, 0, .2);
+    font-weight: 500;
+    font-size: 16px;
   }
 }
 
 section {
   max-width: $max-width;
-  margin: 0 auto;
+  margin: 0 auto 60px;
   padding: 0 $buffer;
   line-height: 1.6;
   > h1, h2 {
@@ -45,13 +52,24 @@ section {
     font-weight: 400;    
     position: relative;
   }
+  h1 + h2 {
+    margin-top: -30px;
+    font-size: 19px;
+    font-weight: 300;
+    color: #aaa;
+  }
   > h1:before {
     counter-increment: chapter;
     content: counter(chapter) ".";
     position: absolute;
     width: 30px;
     left: -50px;
-    text-align: right;
+  }
+  h1 {
+    font-size: 1.5em;      
+  }
+  h2 {
+    font-size: 1.3em;
   }
   li {
     margin-bottom: 16px;
@@ -61,6 +79,7 @@ section {
   }
   ol, ul {
     margin-bottom: 16px;
+    margin-left: 0;
   }
 }
 
@@ -96,11 +115,7 @@ p img {
 }
 
 @page:first {
-  margin: 0 0 25mm 0;
-}
-
-@page:last {
-  margin: 60mm;
+  margin-top: 0;
 }
 
 @media print {
@@ -122,7 +137,8 @@ p img {
   }
   p img {
     margin-left: -30mm;
-    width: calc(100% + 30mm);
+    margin-right: 30mm;
+    width: 120%;
   }
 }
 

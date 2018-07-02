@@ -6,6 +6,8 @@ layouts = require 'metalsmith-layouts'
 watch = require 'metalsmith-watch'
 _ = require 'lodash'
 appRoot = path.resolve(__dirname, '..')
+git = require 'git-rev-sync'
+moment = require 'moment'
 
 
 
@@ -35,6 +37,11 @@ module.exports = ->
       mkdirp argv.dst
       base = 
         metalsmith(appRoot)
+        .metadata(
+          revision: git.short(argv.src)
+          date: moment().format('MMMM Do YYYY')
+          dirty: git.date(argv.src)
+        )
         .source(argv.src)
         .destination(argv.dst)
         .frontmatter(false)
