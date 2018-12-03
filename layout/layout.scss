@@ -14,6 +14,14 @@ body {
   counter-reset: chapter;
 }
 
+blockquote {
+  font-size: 18px;
+  margin: 30px 0 30px 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;  
+} 
+
+
 header {
   background-color: $brand-color;
   padding-top: 120px;
@@ -53,12 +61,12 @@ section {
     font-weight: 400;    
     position: relative;
   }
-  h1 + h2 {
-    margin-top: -30px;
-    font-size: 19px;
-    font-weight: 300;
-    color: #aaa;
-  }
+  // h1 + h2 {
+  //   margin-top: -30px;
+  //   font-size: 19px;
+  //   font-weight: 300;
+  //   color: #aaa;
+  // }
   > h1:before {
     counter-increment: chapter;
     content: counter(chapter) ".";
@@ -73,9 +81,9 @@ section {
     font-size: 1.3em;
   }
   li {
-    margin-bottom: 16px;
+    margin-bottom: 7px;
     li {
-      margin-top: 16px;
+      margin-top: 7px;
     }
   }
   ol, ul {
