@@ -157,8 +157,9 @@ table {
   .centered {
     text-align: center;
   }
+  border-collapse: collapse;
   th, td {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #555;
   }
   th {
     font-weight: bold;
